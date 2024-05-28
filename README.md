@@ -29,13 +29,13 @@
 - Step 1: Add music to the code
   <div align=centre> <img src="assets/add music.jpg" width="400px" >
 - Step 2: Set amplitude level
-- These amplitude parameters are set to different parameters according to different graphs. At the same time, the rotation Angle of the outer oval is also set.
+  These amplitude parameters are set to different parameters according to different graphs. At the same time, the rotation Angle of the outer oval is also set.
   <div align=centre> <img src="assets/amplitude level.jpg" width="400px" >
 - Step 3: Modify code
-- In the following example, the set parameter code is added to the base code, so that the graph can be moved according to the size of the parameter.
+  In the following example, the set parameter code is added to the base code, so that the graph can be moved according to the size of the parameter.
   <div align=centre> <img src="assets/Modify code.jpg" width="400px" >
 - Step 4: Adjust the screen size and music playing rules
-- First, make the size of the screen move with the size of the screen. Secondly, the rules of music playback were modified, so that when music is played again after a pause, it can continue to play rather than restart, and the music can be played in a loop.
+  First, make the size of the screen move with the size of the screen. Secondly, the rules of music playback were modified, so that when music is played again after a pause, it can continue to play rather than restart, and the music can be played in a loop.
   <div align=centre> <img src="assets/screen size.jpg" width="400px" >
 
 ### Part 4: Tools And Technique
