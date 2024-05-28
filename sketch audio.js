@@ -1,6 +1,6 @@
-let song;
-let amp;
-let button;
+let song;//variable to store a song
+let amp;//from https://p5js.org/zh-Hans/reference/#/p5.Oscillator/amp
+let button;//variable to store a button object
 let rotationAngle = 0;  // Variable to store the rotation angle
 let isPlaying = false;  // Variable to track if the song is playing
 let previousTime = 0;  // Variable to track previous time when paused
@@ -25,6 +25,7 @@ function setup() {
   // Create an amplitude analyzer
   amp = new p5.Amplitude();
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight); // Resize the canvas when the window is resized
   positionButton();// Reposition the button when the window is resized
@@ -33,6 +34,7 @@ function windowResized() {
 function positionButton() {
   button.position((width - button.width) / 2, height - button.height - 10); // Position button at the center-bottom
 }
+
 //learn from https://www.youtube.com/watch?v=SfA5CghXw18
 function play_pause() {
   if (!isPlaying) {
@@ -55,11 +57,11 @@ function draw() {
   let baseCircleSize = sqrt(sq(width) + sq(height)) / numCircles; // Base diameter of circles
 
   // Get the current amplitude level
-  let level = amp.getLevel();
+  let level = amp.getLevel();//Get the current Amplitude level from the p5.Amplitude object amp and assign it to the variable level.
   let scaleLevel = map(level, 0, 1, 0.3, 3); // Scale the amplitude level
   let rotationSpeed = map(level, 0, 1, 0, 0.5); // Scale rotation speed based on amplitude
-  let zigzagLevel = map(level, 0, 1, 0.8, 2); 
-  let circleLevel = map(level, 0, 1, 1, 1.5); 
+  let zigzagLevel = map(level, 0, 1, 0.8, 2); //The zigzagLevel variable stores a parameter value adjusted to the audio amplitude and is used to control the size of the zigzaglevel lines.
+  let circleLevel = map(level, 0, 1, 1, 1.5); //The circleLevel variable stores a parameter value adjusted to the audio amplitude to control the size of the circle around which the fill is drawn.
 
   // Update the rotation angle
   rotationAngle += rotationSpeed;
@@ -71,7 +73,7 @@ function draw() {
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(posX, posY, circleSize);
     drawEllipsesAroundCircle(posX, posY, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(posX, posY, 15, numCircles, baseCircleSize);
+    drawSurroundingCircles(posX, posY, 15, numCircles, baseCircleSize);// Use baseCircleSize for circles
     drawFilledSurroundingCircles(posX, posY, baseCircleSize*circleLevel);//baseCircleSize*circleLevel determines the diameter or radius of these small circles, and their size is adjusted according to the value of circleLevel.
     drawExtendingLine(posX, posY, circleSize);
   }
@@ -83,9 +85,9 @@ function draw() {
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(upperCircleX, upperCircleY, circleSize);
     drawEllipsesAroundCircle(upperCircleX, upperCircleY, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(upperCircleX, upperCircleY, 20, numCircles, baseCircleSize);
+    drawSurroundingCircles(upperCircleX, upperCircleY, 20, numCircles, baseCircleSize);// Use baseCircleSize for circles
     if (j == 1 || j == 2){
-      drawFilledSurroundingCircles(upperCircleX, upperCircleY, baseCircleSize*circleLevel);
+      drawFilledSurroundingCircles(upperCircleX, upperCircleY, baseCircleSize*circleLevel);//By adjusting the value of circleLevel, you can control the size of the base circle, which affects the appearance of the drawn graph.
     }
     if (j == 0 || j == 3) {
       drawZigzagLines(upperCircleX, upperCircleY, baseCircleSize*zigzagLevel);//baseCircleSize*zigzagLevel determines the size of the zigzagLevel lines, which are adjusted according to the value of ZigzagLevel.
@@ -99,17 +101,18 @@ function draw() {
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(upperCircleX1, upperCircleY1, circleSize);
     drawEllipsesAroundCircle(upperCircleX1, upperCircleY1, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(upperCircleX1, upperCircleY1, 70, numCircles, baseCircleSize);
+    drawSurroundingCircles(upperCircleX1, upperCircleY1, 70, numCircles, baseCircleSize);// Use baseCircleSize for circles
     drawFilledSurroundingCircles(upperCircleX1, upperCircleY1, baseCircleSize*circleLevel);
     drawExtendingLine(upperCircleX1, upperCircleY1, circleSize);
   }
+  
   for (let d = 0; d < numCircles - 2; d++) {
     let upperCircleX2 = d * (baseCircleSize * 0.80) + (baseCircleSize * 4.4);
     let upperCircleY2 = d * (baseCircleSize * 0.80) - (baseCircleSize * 0.05);
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(upperCircleX2, upperCircleY2, circleSize);
     drawEllipsesAroundCircle(upperCircleX2, upperCircleY2, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(upperCircleX2, upperCircleY2, 70, numCircles, baseCircleSize);
+    drawSurroundingCircles(upperCircleX2, upperCircleY2, 70, numCircles, baseCircleSize);// Use baseCircleSize for circles
     drawFilledSurroundingCircles(upperCircleX2, upperCircleY2, baseCircleSize*circleLevel);
     drawExtendingLine(upperCircleX2, upperCircleY2, circleSize);
   }
@@ -121,7 +124,7 @@ function draw() {
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(lowerCircleX, lowerCircleY, circleSize);
     drawEllipsesAroundCircle(lowerCircleX, lowerCircleY, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(lowerCircleX, lowerCircleY, 55, numCircles, baseCircleSize);
+    drawSurroundingCircles(lowerCircleX, lowerCircleY, 55, numCircles, baseCircleSize);// Use baseCircleSize for circles
     if (b == 0 || b == 2 || b == 3){
     drawFilledSurroundingCircles(lowerCircleX, lowerCircleY, baseCircleSize*circleLevel);
     }
@@ -137,7 +140,7 @@ function draw() {
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(lowerCircleX1, lowerCircleY1, circleSize);
     drawEllipsesAroundCircle(lowerCircleX1, lowerCircleY1, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(lowerCircleX1, lowerCircleY1, 100, numCircles, baseCircleSize);
+    drawSurroundingCircles(lowerCircleX1, lowerCircleY1, 100, numCircles, baseCircleSize);// Use baseCircleSize for circles
     drawFilledSurroundingCircles(lowerCircleX1, lowerCircleY1, baseCircleSize*circleLevel);
     drawExtendingLine(lowerCircleX1, lowerCircleY1, circleSize);
   }
@@ -148,7 +151,7 @@ function draw() {
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
     drawConcentricCircles(lowerCircleX2, lowerCircleY2, circleSize);
     drawEllipsesAroundCircle(lowerCircleX2, lowerCircleY2, baseCircleSize); // Use baseCircleSize for ellipses
-    drawSurroundingCircles(lowerCircleX2, lowerCircleY2, 100, numCircles, baseCircleSize);
+    drawSurroundingCircles(lowerCircleX2, lowerCircleY2, 100, numCircles, baseCircleSize);// Use baseCircleSize for circles
     drawFilledSurroundingCircles(lowerCircleX2, lowerCircleY2, baseCircleSize*circleLevel);
     drawExtendingLine(lowerCircleX2, lowerCircleY2, circleSize);
   }
