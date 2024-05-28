@@ -5,10 +5,10 @@ function setup() {
 
 function draw() {
   background(0, 85, 128);
-  let numCircles = 5; // 对角线上的圆的数量
-  let circleSize = sqrt(sq(width) + sq(height)) / numCircles;//圆的直径
+  let numCircles = 5; // Number of circles on the diagonal
+  let circleSize = sqrt(sq(width) + sq(height)) / numCircles;//diameter of a circle
 
-  //绘制对角线上的圆
+  //Drawing circles on the diagonal
   for (let i = 0; i < numCircles; i++) {
     let posX = (i + 1) * (circleSize * 0.5) + i * (circleSize * 0.25);
     let posY = posX;
@@ -19,7 +19,7 @@ function draw() {
     drawExtendingLine(posX, posY, circleSize);
   }
 
-  // 绘制对角线上方的圆
+  // Drawing a circle above the diagonal
   for (let j = 0; j < numCircles - 1; j++) {
     let upperCircleX = j * (circleSize * 0.80) + (circleSize * 1.55);
     let upperCircleY = j * (circleSize * 0.80) + (circleSize * 0.15);
@@ -72,7 +72,7 @@ function draw() {
   }
 }
 
-//绘制椭圆形的方法
+//Drawing ellipse function
 function drawEllipse(centerX, centerY, ellipseWidth, ellipseHeight, rotation) {
   push();
   translate(centerX, centerY);
@@ -91,23 +91,23 @@ function drawEllipse(centerX, centerY, ellipseWidth, ellipseHeight, rotation) {
   pop();
 }
 
-//绘制椭圆形环绕圆形
+// Drawing ellipses around circle
 function drawEllipsesAroundCircle(centerX, centerY, circleSize) {
-  let numEllipses = 33;  // 椭圆的数量
+  let numEllipses = 33;  // Number of ellipses
   let ellipseWidth = circleSize / 19;  
   let ellipseHeight = circleSize / 40; 
-  let radius = circleSize / 1.8;  // 椭圆到圆心的距离
+  let radius = circleSize / 1.8;  // Distance from ellipses to the circle center
 
   for (let i = 0; i < numEllipses; i++) {
     let angle = TWO_PI * i / numEllipses;
     let ellipseCenterX = centerX + radius * cos(angle);
     let ellipseCenterY = centerY + radius * sin(angle);
-    let rotation = angle + HALF_PI;  // 旋转椭圆使椭圆的长轴与圆的半径垂直
+    let rotation = angle + HALF_PI;  // Rotate ellipses to make their long axis perpendicular to the circle radius
     drawEllipse(ellipseCenterX, ellipseCenterY, ellipseWidth, ellipseHeight, rotation);
   }
 }
 
-//绘制锯齿形线条的方法
+//Drawing zigzag lines function
 function drawZigzagLines(centerX, centerY, circleSize) {
   let radius = circleSize / 2;
   let numZigzags = 80;
@@ -130,10 +130,10 @@ function drawZigzagLines(centerX, centerY, circleSize) {
   pop();
 }
 
-//绘制填充并环绕大圆形的内部小圆的方法
+//Method for drawing small inner circles that fill and surround a large circle
 function drawFilledSurroundingCircles(centerX, centerY, circleSize) {
-  let smallCircleSize = circleSize / 25; // 小圆的直径
-  let radius = circleSize / 2 - smallCircleSize / 2 - 2; // 小圆中心到大圆中心的距离
+  let smallCircleSize = circleSize / 25; // diameter of a small circle
+  let radius = circleSize / 2 - smallCircleSize / 2 - 2;
   
   for (let i = 0; i < 5; i++) {
     for (angle = 0; angle < 360; angle += 10) {
@@ -146,10 +146,11 @@ function drawFilledSurroundingCircles(centerX, centerY, circleSize) {
   }
 }
 
-//绘制环绕大圆的外部小圆的方法
+//Method of drawing a small external circle around a large circle
 function drawSurroundingCircles(centerX, centerY, angle, numCircles, circleSize) {
-  let smallCircleSize = circleSize / 15; // 小圆的直径
-  let radius = circleSize / 2 + smallCircleSize / 2 + 2; // 小圆中心到大圆中心的距离
+  let smallCircleSize = circleSize / 15; // diameter of a small circle
+  let radius = circleSize / 2 + smallCircleSize / 2 + 2; // Distance from the center 
+  //of the small circle to the center of the large circle
 
   for (let i = 0; i < numCircles; i++) {
     for (angle; angle < 360; angle += 72) {
@@ -163,17 +164,18 @@ function drawSurroundingCircles(centerX, centerY, angle, numCircles, circleSize)
     }
   }
 }
-//绘制同轴圆形组合的方法
+
+//Method for drawing coaxial circular combinations
 function drawConcentricCircles(x, y, size) {
-  const layers = random(4, 10); // 随机层数
+  const layers = random(4, 10); // random number of layers
   let currentSize = size;
 
   for (let i = 0; i < layers; i++) {
     stroke(0, 0, 0);
     strokeWeight(random(3));
-    fill(randomColor()); // 使用随机颜色
+    fill(randomColor()); // Use random colors
     ellipse(x, y, currentSize, currentSize);
-    currentSize *= 0.7; // 层级大小递减
+    currentSize *= 0.7; // Decreasing tier size
   }
 }
 
