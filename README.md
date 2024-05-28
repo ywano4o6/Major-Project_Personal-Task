@@ -27,20 +27,20 @@
 
 - While the core structure of the group code remains the same, I made significant changes to incorporate audio synchronization, color changes, and dynamic motion based on amplitude analysis.
 - Step 1: Add music to the code
-  <div align=centre> <img src="assets/add music.jpg" width="200px" >
+  <div align=centre> <img src="assets/add music.jpg" width="400px" >
 - Step 2: Set amplitude level
 - These amplitude parameters are set to different parameters according to different graphs. At the same time, the rotation Angle of the outer oval is also set.
-  <div align=centre> <img src="assets/amplitude level.jpg" width="200px" >
+  <div align=centre> <img src="assets/amplitude level.jpg" width="400px" >
 - Step 3: Modify code
 - In the following example, the set parameter code is added to the base code, so that the graph can be moved according to the size of the parameter.
-  <div align=centre> <img src="assets/Modify code.jpg" width="200px" >
+  <div align=centre> <img src="assets/Modify code.jpg" width="400px" >
 - Step 4: Adjust the screen size and music playing rules
 - First, make the size of the screen move with the size of the screen. Secondly, the rules of music playback were modified, so that when music is played again after a pause, it can continue to play rather than restart, and the music can be played in a loop.
-  <div align=centre> <img src="assets/screen size.jpg" width="200px" >
+  <div align=centre> <img src="assets/screen size.jpg" width="400px" >
 
 ### Part 4: Tools And Technique
 - The code I use is basically from the content in the course. In the main project, we mainly used the course content of Week 11, such as audio import and the amplitude object of p5.js for audio analysis and synchronization. In addition, I draw inspiration from various online resources and tutorials on audio response visualization, such as youtube's The Coding Train video for my methods and techniques.
-  <div align=centre> <img src="assets/reference.jpg" width="200px" >
+  <div align=centre> <img src="assets/reference.jpg" width="400px" >
   
   [Link Text](https://www.youtube.com/watch?v=SfA5CghXw18&list=PLRqwX-V7Uu6aFcVjlDAkkGIixw70s7jpW&index=3)
   
