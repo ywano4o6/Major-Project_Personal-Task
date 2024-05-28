@@ -15,15 +15,23 @@ function loaded() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);// Create a canvas that fits the window size
   noLoop();
 
   button = createButton('Play/Pause');
-  button.position(250, 570);
+  positionButton();
   button.mousePressed(play_pause);
   
   // Create an amplitude analyzer
   amp = new p5.Amplitude();
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight); // Resize the canvas when the window is resized
+  positionButton();// Reposition the button when the window is resized
+}
+
+function positionButton() {
+  button.position((width - button.width) / 2, height - button.height - 10); // Position button at the center-bottom
 }
 
 function play_pause() {
@@ -94,6 +102,16 @@ function draw() {
     drawSurroundingCircles(upperCircleX1, upperCircleY1, 70, numCircles, baseCircleSize);
     drawFilledSurroundingCircles(upperCircleX1, upperCircleY1, baseCircleSize*circleLevel);
     drawExtendingLine(upperCircleX1, upperCircleY1, circleSize);
+  }
+  for (let d = 0; d < numCircles - 2; d++) {
+    let upperCircleX2 = d * (baseCircleSize * 0.80) + (baseCircleSize * 4.4);
+    let upperCircleY2 = d * (baseCircleSize * 0.80) - (baseCircleSize * 0.05);
+    let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
+    drawConcentricCircles(upperCircleX2, upperCircleY2, circleSize);
+    drawEllipsesAroundCircle(upperCircleX2, upperCircleY2, baseCircleSize); // Use baseCircleSize for ellipses
+    drawSurroundingCircles(upperCircleX2, upperCircleY2, 70, numCircles, baseCircleSize);
+    drawFilledSurroundingCircles(upperCircleX2, upperCircleY2, baseCircleSize*circleLevel);
+    drawExtendingLine(upperCircleX2, upperCircleY2, circleSize);
   }
 
   // Draw circles below the diagonal
