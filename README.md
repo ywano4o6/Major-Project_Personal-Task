@@ -15,10 +15,11 @@
 - I choose to drive my personalized code based on audio. My animated image properties include synchronized changes in the image based on audio amplitude, graphic scaling and rotation, and random changes in color. My focus is on creating a visual experience that responds dynamically to the music.
 - In my code, I focus on animating color changes, dynamic motion, and shape changes based on the amplitude of the audio. For example, when the music plays, some circles in the picture will scale with the amplitude of the audio, and the rhythm of the color changes based on the audio.
   <div align=centre> <img src="assets/Zoom and color change1.jpg" width="200px" >
- <div align=centre> <img src="assets/Zoom and color change2.jpg" width="200px" >
+  <div align=centre> <img src="assets/Zoom and color change2.jpg" width="200px" >
 - I was inspired to create the animation code by the various audio interaction visualizations on the web, especially those that dynamically respond to music in real time. My goal is to implement this dynamic of music visualization in my code.
 - The animation effect I created was inspired by various audio interactive visualizations on the Internet, such as the animation in the picture, when you click play, the circle changes color and scales with the audio. My goal is to animate similar music visualizations in my code with the artwork that the team copied.
   <div align=centre> <img src="assets/inspiration.jpg" width="200px" >
+  
   [Link Text](https://openprocessing.org/sketch/2164265)
   
 ### Part 3: Technical Explanation
@@ -40,6 +41,7 @@
 ### Part 4: Tools And Technique
 - The code I use is basically from the content in the course. In the main project, we mainly used the course content of Week 11, such as audio import and the amplitude object of p5.js for audio analysis and synchronization. In addition, I draw inspiration from various online resources and tutorials on audio response visualization, such as youtube's The Coding Train video for my methods and techniques.
   <div align=centre> <img src="assets/reference.jpg" width="200px" >
+  
   [Link Text](https://www.youtube.com/watch?v=SfA5CghXw18&list=PLRqwX-V7Uu6aFcVjlDAkkGIixw70s7jpW&index=3)
   
 
