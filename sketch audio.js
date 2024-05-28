@@ -33,7 +33,7 @@ function windowResized() {
 function positionButton() {
   button.position((width - button.width) / 2, height - button.height - 10); // Position button at the center-bottom
 }
-
+//learn from https://www.youtube.com/watch?v=SfA5CghXw18
 function play_pause() {
   if (!isPlaying) {
     song.play();
@@ -72,7 +72,7 @@ function draw() {
     drawConcentricCircles(posX, posY, circleSize);
     drawEllipsesAroundCircle(posX, posY, baseCircleSize); // Use baseCircleSize for ellipses
     drawSurroundingCircles(posX, posY, 15, numCircles, baseCircleSize);
-    drawFilledSurroundingCircles(posX, posY, baseCircleSize*circleLevel);
+    drawFilledSurroundingCircles(posX, posY, baseCircleSize*circleLevel);//baseCircleSize*circleLevel determines the diameter or radius of these small circles, and their size is adjusted according to the value of circleLevel.
     drawExtendingLine(posX, posY, circleSize);
   }
 
@@ -88,7 +88,7 @@ function draw() {
       drawFilledSurroundingCircles(upperCircleX, upperCircleY, baseCircleSize*circleLevel);
     }
     if (j == 0 || j == 3) {
-      drawZigzagLines(upperCircleX, upperCircleY, baseCircleSize*zigzagLevel);
+      drawZigzagLines(upperCircleX, upperCircleY, baseCircleSize*zigzagLevel);//baseCircleSize*zigzagLevel determines the size of the zigzagLevel lines, which are adjusted according to the value of ZigzagLevel.
     }
     drawExtendingLine(upperCircleX, upperCircleY, circleSize);
   }
