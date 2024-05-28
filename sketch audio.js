@@ -131,7 +131,7 @@ function draw() {
     drawExtendingLine(lowerCircleX, lowerCircleY, circleSize);
   }
 
-  for (let c = 0; c < numCircles - 3; c++) {
+  for (let c = 0; c < numCircles - 2; c++) {
     let lowerCircleX1 = c * (baseCircleSize * 0.75) - (baseCircleSize * 0.2);
     let lowerCircleY1 = c * (baseCircleSize * 0.85) + (baseCircleSize * 2.5);
     let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
@@ -140,6 +140,17 @@ function draw() {
     drawSurroundingCircles(lowerCircleX1, lowerCircleY1, 100, numCircles, baseCircleSize);
     drawFilledSurroundingCircles(lowerCircleX1, lowerCircleY1, baseCircleSize*circleLevel);
     drawExtendingLine(lowerCircleX1, lowerCircleY1, circleSize);
+  }
+
+  for (let e = 0; e < numCircles - 2; e++) {
+    let lowerCircleX2 = e * (baseCircleSize * 0.75) - (baseCircleSize * 0.75);
+    let lowerCircleY2 = e * (baseCircleSize * 0.85) + (baseCircleSize * 3.5);
+    let circleSize = baseCircleSize * scaleLevel; // Adjust circle size based on amplitude
+    drawConcentricCircles(lowerCircleX2, lowerCircleY2, circleSize);
+    drawEllipsesAroundCircle(lowerCircleX2, lowerCircleY2, baseCircleSize); // Use baseCircleSize for ellipses
+    drawSurroundingCircles(lowerCircleX2, lowerCircleY2, 100, numCircles, baseCircleSize);
+    drawFilledSurroundingCircles(lowerCircleX2, lowerCircleY2, baseCircleSize*circleLevel);
+    drawExtendingLine(lowerCircleX2, lowerCircleY2, circleSize);
   }
 }
 
